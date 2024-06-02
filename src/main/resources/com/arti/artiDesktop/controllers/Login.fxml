@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="690.0" styleClass="login-form" stylesheets="@login_style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arti.artiDesktop.controllers.LoginController">
+   <children>
+      <HBox alignment="CENTER" layoutX="100.0" layoutY="60.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <AnchorPane prefHeight="350.0" prefWidth="490.0" styleClass="card-form" stylesheets="@login_style.css">
+               <children>
+                  <Label layoutX="211.0" layoutY="97.0" text="Login" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="username_field" focusTraversable="false" layoutX="125.0" layoutY="144.0" prefHeight="31.0" prefWidth="243.0" promptText="Username" styleClass="textfield" stylesheets="@login_style.css" />
+                  <TextField fx:id="password_afficher" focusTraversable="false" layoutX="135.0" layoutY="154.0" prefHeight="31.0" prefWidth="243.0" promptText="Password" styleClass="textfield" stylesheets="@login_style.css" visible="false" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="185.0" />
+                  <PasswordField fx:id="password_field" focusTraversable="false" layoutX="125.0" layoutY="185.0" prefHeight="31.0" prefWidth="243.0" promptText="Password" styleClass="textfield" stylesheets="@login_style.css" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="185.0" />
+                  <Button fx:id="btn_login" layoutX="200.0" layoutY="300.0" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="91.0" styleClass="login_button" stylesheets="@login_style.css" text="Login">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Button>
+                  <FontAwesomeIcon fill="WHITE" glyphName="USERS" layoutX="211.0" layoutY="79.0" size="5em" text="" wrappingWidth="69.0" />
+                  <Button fx:id="btn_eye_slash" layoutX="340.0" layoutY="188.0" mnemonicParsing="false" onAction="#masquermodpass" styleClass="btn_eye_icon" stylesheets="@login_style.css" visible="false" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="188.0">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="EYE_SLASH" size="1.5em" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btn_eye" layoutX="340.0" layoutY="188.0" mnemonicParsing="false" onAction="#afichermodpass" styleClass="btn_eye_icon" stylesheets="@login_style.css" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="188.0">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="EYE" size="1.5em" />
+                     </graphic>
+                  </Button>
+                  <ComboBox fx:id="combobox_lodin" layoutX="164.0" layoutY="236.0" prefHeight="36.0" prefWidth="163.0" promptText="Select User" styleClass="combo" stylesheets="@login_style.css" />
+                  <Line endX="138.0" layoutX="218.0" layoutY="272.0" startX="-100.0" stroke="#2a5172" strokeWidth="3.0" AnchorPane.bottomAnchor="75.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,61 @@
+.login-form{
+    -fx-background-color:linear-gradient(to bottom right, #252d50, #324f6b);
+     
+}
+.card-form{
+    -fx-background-color:#2a5172;
+    -fx-background-radius:15px;
+}
+.close{
+	-fx-background-color: transparent;
+	-fx-cursor: hand;
+}
+.close:hover{
+	-fx-background-color: #f13f57;
+}
+.minimise{
+	-fx-background-color: transparent;
+	-fx-cursor: hand;
+}
+.minimise:hover{
+	-fx-background-color: #5481ab;
+}
+
+.textfield{
+	-fx-background-color: transparent;
+	-fx-text-inner-color:#fff;
+	-fx-border-width: 0px 0px .4px 0px ;
+	-fx-border-color: #fff;
+	-fx-font-size:15px;
+}
+
+.textfield:focused{
+	-fx-border-width: 0px 0px 1px 0px ;
+
+}
+.login_button{
+	-fx-background-color: #468ec2;
+	-fx-background-radius:15px;
+	-fx-cursor:hand;
+	-fx-text-fill:#fff;
+	
+}
+.login_button:hover{
+    -fx-background-color:#559bc9;
+}
+.btn_eye_icon{
+	-fx-cursor: hand;
+	-fx-background-color: transparent;
+}
+
+.combo{
+	-fx-background-color: #fff;
+	-fx-cursor:hand;
+	-fx-border-width: 2px 2px 2px 2px ;
+	-fx-border-color: #000;
+	-fx-border-radius: 5px;
+	-fx-background-radius: 8px;
+}
+
+
+
