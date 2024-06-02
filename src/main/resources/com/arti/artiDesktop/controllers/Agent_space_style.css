@@ -1,0 +1,57 @@
+.nav-form{
+   -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+}
+.edit-btn{
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+    -fx-padding:70px 0px 0px 0px;
+}
+
+.nav-btn{
+    -fx-background-color:linear-gradient(to bottom right, #344275, #3a6389);
+    -fx-background-radius:5px;
+    -fx-cursor:hand;
+    -fx-text-fill:#fff;
+}
+.nav-btn:hover{
+    -fx-background-color:linear-gradient(to bottom right, #46589a, #4278a7);
+    -fx-background-radius:5px;
+}
+.logout-btn{
+    -fx-background-color:#366d9d;
+    -fx-background-radius:10px;
+    -fx-cursor:hand;
+}
+.logout-btn:hover{
+    -fx-background-color:#396fc6;
+    -fx-background-radius:10px;
+}
+.ancropane_rendez-vous{
+	-fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+}
+.info_profil{
+	-fx-background-color:#fff;
+	-fx-background-radius:10px;
+}
+.scrollpane{
+	-fx-background:#fff;
+	-fx-border-color: #fff;
+	-fx-background-radius:10px;
+}
+.anchore_pane{
+	-fx-background-color:#fff;
+	-fx-background-radius:5px;
+}
+.nav-btn-1{
+    -fx-background-color: transparent;
+    -fx-border-color: #fff;
+    -fx-border-width: .5px;
+    -fx-text-fill: #fff;
+    -fx-font-family: Arial;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+.nav-btn-1:hover{
+    -fx-background-color: #fff;
+    -fx-text-fill: #000;
+}

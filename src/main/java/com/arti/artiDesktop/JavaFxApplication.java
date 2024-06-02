@@ -1,5 +1,6 @@
 package com.arti.artiDesktop;
 
+import com.arti.artiDesktop.controllers.AdminController;
 import com.arti.artiDesktop.controllers.LoginController;
 import com.arti.artiDesktop.controllers.MyController;
 import javafx.application.Application;
@@ -25,7 +26,7 @@ public class JavaFxApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FxWeaver fxWeaver = applicationContext.getBean(FxWeaver.class);
-        Parent root = fxWeaver.loadView(LoginController.class);
+        Parent root = fxWeaver.loadView(AdminController.class);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

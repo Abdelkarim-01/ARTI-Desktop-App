@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<StackPane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arti.artiDesktop.controllers.AgentController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane prefHeight="572.0" prefWidth="214.0" styleClass="nav-form" stylesheets="@Agent_space_style.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Circle fx:id="circle_profile" layoutX="107.0" layoutY="87.0" radius="73.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="66.0" layoutY="174.0" prefHeight="28.0" prefWidth="82.0" text="Welcome" textFill="WHITE">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="208.0" prefHeight="26.0" prefWidth="52.0" text="Agent :" textFill="WHITE">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="agent_nom_label" layoutX="60.0" layoutY="208.0" prefHeight="26.0" prefWidth="145.0" text="KARIM" textFill="WHITE">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="15.0" />
+                           </font>
+                        </Label>
+                        <Line endX="91.0" layoutX="111.0" layoutY="249.0" startX="-100.0" stroke="WHITE" />
+                        <Button fx:id="btn_presence" layoutX="10.0" layoutY="271.0" mnemonicParsing="false" onAction="#onactionbtn_presence" prefHeight="40.0" prefWidth="193.0" styleClass="nav-btn-1" stylesheets="@Agent_space_style.css" text="Noter Présence">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_voir_rendez_vous" layoutX="10.0" layoutY="381.0" mnemonicParsing="false" onAction="#onactionbtn_voir_rendezvous" prefHeight="40.0" prefWidth="193.0" styleClass="nav-btn-1" stylesheets="@Agent_space_style.css" text="Voir Les rendez-vous">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_rendez_vous" layoutX="10.0" layoutY="326.0" mnemonicParsing="false" onAction="#onactionbtn_ajouter_rendezvous" prefHeight="40.0" prefWidth="193.0" styleClass="nav-btn-1" stylesheets="@Agent_space_style.css" text="Ajouter rendez-vous">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="logout_btn" layoutX="8.0" layoutY="561.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="35.0" styleClass="logout-btn" stylesheets="@Agent_space_style.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0">
+                           <graphic>
+                              <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.5em" wrappingWidth="12.142857551574707" />
+                           </graphic>
+                        </Button>
+                        <Label layoutX="48.0" layoutY="563.0" text="Sign out" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="48.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="anchorepane_presence" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="886.0" styleClass="nav-form" stylesheets="@Admin_space_style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane fx:id="ancropane_noter_presence" onMouseClicked="#masquer_anchorepane_heure" prefHeight="574.0" prefWidth="290.0" styleClass="info_profil" stylesheets="@Admin_space_style.css" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="161.0" prefHeight="28.0" prefWidth="98.0" text="date de jour" AnchorPane.leftAnchor="5.0">
+                                       <font>
+                                          <Font name="Arial Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="45.0" layoutY="66.0" prefHeight="32.0" prefWidth="201.0" text="Notez votre présence" textFill="#0d4194">
+                                       <font>
+                                          <Font name="Arial Bold Italic" size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="date_jour_presence" editable="false" layoutX="123.0" layoutY="161.0" prefHeight="25.0" prefWidth="153.0" />
+                                    <Label layoutX="5.0" layoutY="229.0" prefHeight="28.0" prefWidth="113.0" text="heure d'entrée" AnchorPane.leftAnchor="5.0">
+                                       <font>
+                                          <Font name="Arial Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="295.0" prefHeight="28.0" prefWidth="117.0" text="heure de sortie" AnchorPane.leftAnchor="5.0">
+                                       <font>
+                                          <Font name="Arial Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="btn_confirmer_presence" layoutX="99.0" layoutY="529.0" mnemonicParsing="false" onAction="#confirmer_presence" prefHeight="38.0" prefWidth="92.0" styleClass="nav-btn" stylesheets="@Agent_space_style.css" text="Confirmer" AnchorPane.bottomAnchor="22.0">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="btn_heur_entrer" layoutX="241.0" layoutY="230.0" mnemonicParsing="false" onAction="#choisirheurentrer" prefHeight="26.0" prefWidth="15.0" AnchorPane.topAnchor="230.0">
+                                       <graphic>
+                                          <ImageView fitHeight="18.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="/image/clock.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <TextField fx:id="txt_heur_entrer" editable="false" layoutX="124.0" layoutY="230.0" prefHeight="25.0" prefWidth="117.0" promptText="00 : 00" AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="230.0" />
+                                    <Button fx:id="btn_heur_sortie" layoutX="241.0" layoutY="295.0" mnemonicParsing="false" onAction="#choisirheuresortie" prefHeight="26.0" prefWidth="15.0" AnchorPane.topAnchor="295.0">
+                                       <graphic>
+                                          <ImageView fitHeight="18.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="/image/clock1.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <TextField fx:id="txt_heur_sortie" layoutX="124.0" layoutY="296.0" prefHeight="25.0" prefWidth="117.0" promptText="00 : 00" AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="296.0" />
+                                    <AnchorPane fx:id="anchorpane_heur_sortie" layoutX="129.0" layoutY="321.0" prefHeight="166.0" prefWidth="100.0" visible="false">
+                                       <children>
+                                          <ListView fx:id="list_heur1" layoutY="26.0" prefHeight="166.0" prefWidth="52.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <ListView fx:id="list_munit1" layoutX="49.0" prefHeight="166.0" prefWidth="52.0" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorpane_heur_entrer" layoutX="129.0" layoutY="255.0" prefHeight="166.0" prefWidth="100.0" visible="false">
+                                       <children>
+                                          <ListView fx:id="list_heur" layoutY="26.0" prefHeight="166.0" prefWidth="52.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <ListView fx:id="list_munit" layoutX="49.0" prefHeight="166.0" prefWidth="52.0" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children></AnchorPane>
+                              <AnchorPane layoutX="305.0" prefHeight="590.0" prefWidth="277.0" styleClass="info_profil" stylesheets="@Admin_space_style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="206.0" layoutY="62.0" prefHeight="35.0" prefWidth="169.0" text="Table de présence" textFill="#0d4194" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="206.0">
+                                       <font>
+                                          <Font name="System Bold Italic" size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="tableviewpresence" layoutX="21.0" layoutY="136.0" prefHeight="372.0" prefWidth="540.0" AnchorPane.bottomAnchor="82.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="136.0">
+                                       <columns>
+                                          <TableColumn fx:id="col_datejour_prese" prefWidth="176.0" text="Date de jour" />
+                                          <TableColumn fx:id="col_heureentree_prese" prefWidth="187.0" text="Heure entree" />
+                                          <TableColumn fx:id="col_heuresortie_prese" prefWidth="174.0" text="Heure sortie" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox alignment="CENTER" layoutX="42.0" layoutY="520.0" prefHeight="56.0" prefWidth="498.0" spacing="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="41.0">
+                                       <children>
+                                          <Button fx:id="btn_dans_cemois" mnemonicParsing="false" onAction="#tablepresenceDisplayData1" prefHeight="36.0" prefWidth="127.0" styleClass="nav-btn" stylesheets="@Admin_space_style.css" text="Dans ce mois">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn_tout_les_moi" mnemonicParsing="false" onAction="#tablepresenceDisplayData" prefHeight="36.0" prefWidth="127.0" styleClass="nav-btn" stylesheets="@Admin_space_style.css" text="Tout les mois">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                        <AnchorPane fx:id="anchorepane_ajouter_rendezvous" layoutX="20.0" layoutY="20.0" prefHeight="600.0" prefWidth="886.0" styleClass="nav-form" stylesheets="@Admin_space_style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="574.0" prefWidth="290.0" styleClass="info_profil" stylesheets="@Admin_space_style.css" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="61.0" layoutY="39.0" prefHeight="35.0" prefWidth="169.0" text="Client info " textFill="#0d4194">
+                                       <font>
+                                          <Font name="System Bold Italic" size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="147.0" prefHeight="26.0" prefWidth="95.0" text="Nom">
+                                       <font>
+                                          <Font name="Arial Bold Italic" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="198.0" prefHeight="26.0" prefWidth="95.0" text="Prenom">
+                                       <font>
+                                          <Font name="Arial Bold Italic" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="248.0" prefHeight="26.0" prefWidth="95.0" text="Telephone">
+                                       <font>
+                                          <Font name="Arial Bold Italic" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="98.0" layoutY="295.0" prefHeight="26.0" prefWidth="95.0" text="Adresse">
+                                       <font>
+                                          <Font name="Arial Bold Italic" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txt_nom_client" layoutX="109.0" layoutY="148.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <TextField fx:id="txt_prenom_client" layoutX="109.0" layoutY="199.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <TextField fx:id="txt_tele_client" layoutX="109.0" layoutY="249.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <TextArea fx:id="txt_adresse_client" layoutX="11.0" layoutY="333.0" prefHeight="93.0" prefWidth="269.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextArea>
+                                    <Label fx:id="lab_nom_client" alignment="CENTER_RIGHT" layoutX="132.0" layoutY="173.0" prefHeight="9.0" prefWidth="123.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                       <font>
+                                          <Font name="System Italic" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lab_prenom_client" alignment="CENTER_RIGHT" layoutX="133.0" layoutY="224.0" prefHeight="9.0" prefWidth="123.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                       <font>
+                                          <Font name="System Italic" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lab_tele_client" alignment="CENTER_RIGHT" layoutX="132.0" layoutY="274.0" prefHeight="9.0" prefWidth="123.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                       <font>
+                                          <Font name="System Italic" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lab_adresse_client" alignment="CENTER_RIGHT" layoutX="84.0" layoutY="426.0" prefHeight="9.0" prefWidth="123.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                       <font>
+                                          <Font name="System Italic" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children></AnchorPane>
+                              <AnchorPane layoutX="300.0" layoutY="27.0" prefHeight="590.0" prefWidth="581.0" styleClass="info_profil" stylesheets="@Admin_space_style.css" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <children>
+                                    <ScrollPane layoutX="22.0" prefHeight="539.0" prefWidth="559.0" styleClass="scrollpane" stylesheets="@Agent_space_style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <VBox maxWidth="1.7976931348623157E308" prefHeight="950.0" prefWidth="518.0" spacing="10.0">
+                                             <children>
+                                                <Label prefHeight="0.0" prefWidth="292.0">
+                                                   <font>
+                                                      <Font size="1.0" />
+                                                   </font></Label>
+                                                <HBox prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="durée de propriété">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="txt_duree_propritee" prefHeight="25.0" prefWidth="163.0" promptText="Example : 3 ans" />
+                                                      <Label fx:id="lab_duree_propritee" alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="148.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="0.0" prefWidth="518.0">
+                                                   <children>
+                                                      <CheckBox fx:id="check_garger_maison" mnemonicParsing="false" prefHeight="29.0" prefWidth="141.0" text="garder_maison">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </CheckBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="type maison">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox fx:id="combo_type_maison" prefHeight="25.0" prefWidth="160.0" />
+                                                      <Label fx:id="lab_combo_type_maison" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="16.0" prefWidth="518.0">
+                                                   <children>
+                                                      <CheckBox fx:id="check_sous_sol_fini" mnemonicParsing="false" prefHeight="29.0" prefWidth="145.0" text="sous sol fini">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </CheckBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="13.0" prefWidth="518.0">
+                                                   <children>
+                                                      <CheckBox fx:id="check_grenier_accecible" mnemonicParsing="false" prefHeight="29.0" prefWidth="169.0" text="grenier accessible">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </CheckBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="16.0" prefWidth="518.0">
+                                                   <children>
+                                                      <CheckBox fx:id="check_grenier_habitable" mnemonicParsing="false" prefHeight="29.0" prefWidth="169.0" text="grenier habitable">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </CheckBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="89.0" prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="hauteur grenier">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox fx:id="combo_hauteur_grenier" prefHeight="25.0" prefWidth="163.0" />
+                                                      <Label fx:id="lab_combo_hauteur_grenier" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="201.0" prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="isolation grenier">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox fx:id="combo_isolation_grenier" prefHeight="25.0" prefWidth="163.0" />
+                                                      <Label fx:id="lab_combo_isolation_grenier" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="226.0" prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="type chauffage">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox fx:id="combo_type_chauffage" prefHeight="25.0" prefWidth="163.0" />
+                                                      <Label fx:id="lab_combo_type_chauffage" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="226.0" prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="autre chauffage">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox fx:id="combo_autre_chauffage" prefHeight="25.0" prefWidth="163.0" />
+                                                      <Label fx:id="lab_combo_autre_chauffage" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="18.0" prefWidth="518.0">
+                                                   <children>
+                                                      <CheckBox fx:id="check_thermopompe" mnemonicParsing="false" prefHeight="29.0" prefWidth="145.0" text="thermopompe">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </CheckBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="276.0" prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="type thermopompe">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox fx:id="combo_type_thermopompe" prefHeight="25.0" prefWidth="163.0" />
+                                                      <Label fx:id="lab_combo_type_thermopompe" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="30.0" prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="durre thermopompe">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="txt_duree_thermopompe" prefHeight="25.0" prefWidth="163.0" promptText="Example : 3 ans" />
+                                                      <Label fx:id="lab_txt_duree_thermopompe" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="350.0" prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="taxe d'électricité">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="txt_taxe_electricite" prefHeight="25.0" prefWidth="163.0" promptText="Example : 23 $/mois" />
+                                                      <Label fx:id="lab_txt_taxe_electricite" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="325.0" prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="172.0" text="tranche d'âge">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox fx:id="combo_tranche_age" prefHeight="25.0" prefWidth="163.0" />
+                                                      <Label fx:id="lab_combo_tranche_age" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="375.0" prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="secteur d'activité">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="txt_secteur_activiter" prefHeight="25.0" prefWidth="163.0" promptText="Example : informatique" />
+                                                      <Label fx:id="lab_txt_secteur_activiter" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="425.0" maxWidth="1.7976931348623157E308" prefHeight="93.0" prefWidth="516.0">
+                                                   <children>
+                                                      <Label prefHeight="29.0" prefWidth="171.0" text="Commentaire">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextArea fx:id="txt_autre_information" maxWidth="1.7976931348623157E308" prefHeight="93.0" prefWidth="339.0" promptText="Example : une remarque" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="425.0" prefHeight="24.0" prefWidth="257.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="date rendez-vous">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <DatePicker fx:id="date_rendez_vous" prefHeight="25.0" prefWidth="163.0" />
+                                                      <Label fx:id="lab_date_rendez_vous" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="72.0" prefWidth="518.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="171.0" text="heure rendez-vous">
+                                                         <font>
+                                                            <Font name="Arial Bold Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="txt_heur_rendezvous" editable="false" prefHeight="25.0" prefWidth="129.0" promptText="00 : 00" />
+                                                      <Button fx:id="btn_heur_rendezvous" mnemonicParsing="false" onAction="#choisirdaterendezvous" prefHeight="26.0" prefWidth="22.0">
+                                                         <graphic>
+                                                            <ImageView fitHeight="18.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="/image/clock1.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Label fx:id="lab_heur_renddezvous" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="154.0" text="! Champ Obligatoire" textFill="RED" visible="false">
+                                                         <font>
+                                                            <Font name="System Italic" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="154.0" prefWidth="518.0">
+                                                   <children>
+                                                      <Label prefHeight="17.0" prefWidth="175.0" />
+                                                      <AnchorPane fx:id="anchorpane_heur_rendez_vous" prefHeight="166.0" prefWidth="100.0" visible="false">
+                                                         <children>
+                                                            <ListView fx:id="list_heur2" layoutY="26.0" prefHeight="166.0" prefWidth="52.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                            <ListView fx:id="list_munit2" layoutX="49.0" prefHeight="166.0" prefWidth="52.0" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="0.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                    </ScrollPane>
+                                 </children></AnchorPane>
+                              <AnchorPane layoutX="95.0" layoutY="573.0" prefHeight="44.0" prefWidth="876.0" styleClass="anchore_pane" stylesheets="@Agent_space_style.css" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="36.0" prefWidth="491.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0">
+                                       <children>
+                                          <Button fx:id="btn_confirmer_rendez_vous" mnemonicParsing="false" onAction="#onaction_confirmer_rendezvous" prefHeight="38.0" prefWidth="248.0" styleClass="nav-btn" stylesheets="@Agent_space_style.css" text="Confirmer Rendez-vous">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                        <AnchorPane fx:id="anchorepane_voir_rendezvous" layoutX="30.0" layoutY="30.0" prefHeight="600.0" prefWidth="886.0" styleClass="nav-form" stylesheets="@Admin_space_style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="574.0" prefWidth="290.0" styleClass="info_profil" stylesheets="@Admin_space_style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="299.0" layoutY="29.0" prefHeight="37.0" prefWidth="278.0" text="archive des rendez vous" textFill="#0e469a" AnchorPane.leftAnchor="299.0" AnchorPane.rightAnchor="299.0">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER" layoutX="137.0" layoutY="95.0" prefHeight="37.0" prefWidth="603.0" spacing="200.0" AnchorPane.leftAnchor="137.0" AnchorPane.rightAnchor="136.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="19.0" prefWidth="220.0">
+                                             <children>
+                                                <Label prefHeight="30.0" prefWidth="41.0" text="De :" textFill="#23a41a">
+                                                   <font>
+                                                      <Font name="System Bold" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <DatePicker fx:id="date_de" editable="false" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="2.0" prefWidth="200.0">
+                                             <children>
+                                                <Label prefHeight="30.0" prefWidth="41.0" text="A :" textFill="#ee3101">
+                                                   <font>
+                                                      <Font name="System Bold" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <DatePicker fx:id="date_a" editable="false" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="table_voir_rendez_vous" layoutX="24.0" layoutY="171.0" prefHeight="344.0" prefWidth="827.0" AnchorPane.bottomAnchor="92.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="154.0">
+                                      <columns>
+                                        <TableColumn fx:id="colum_nom_client" prefWidth="105.0" text="Nom Client" />
+                                        <TableColumn fx:id="colum_pren_client" prefWidth="123.0" text="Prenom Client" />
+                                          <TableColumn fx:id="colum_date_rendezvous" prefWidth="140.0" text="Date rendez-vous" />
+                                          <TableColumn fx:id="colum_date_obtention" prefWidth="160.0" text="Date d'obtension" />
+                                          <TableColumn fx:id="column_etat" prefWidth="111.0" text="Etat" />
+                                          <TableColumn fx:id="column_admin_comment" prefWidth="166.0" text="Admin Commentaire" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox alignment="CENTER" layoutX="339.0" layoutY="507.0" prefHeight="61.0" prefWidth="200.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="338.0" AnchorPane.rightAnchor="338.0">
+                                       <children>
+                                          <Button fx:id="btn_voir_rendezvous" mnemonicParsing="false" onAction="#table_rendez_vous_DisplayData" prefHeight="41.0" prefWidth="190.0" styleClass="nav-btn" stylesheets="@Agent_space_style.css" text="Confirmer">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children></AnchorPane>
+                           </children></AnchorPane>
+                     </children></AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
